@@ -8,7 +8,7 @@ export class News extends Component {
     super();
     console.log("This is a constructor");
     this.state ={
-      articles: this.articles,
+      articles: [],
       loading: false
     }
   }
