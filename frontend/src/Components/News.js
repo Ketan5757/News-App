@@ -29,7 +29,7 @@ export class News extends Component {
           <h1><center>AlleNews - An Entry Point to view latest News</center></h1><br/>
           <div className="row">
             {this.state.articles.map((element) => {
-              return <div className="col-md-4" key = {element.url}>
+              return <div className="col-md-4 mb-4" key = {element.url}>
             <NewsItem  title = {element.title ? element.title.slice(0,40): " "} description = {element.description ? element.description.slice(0,88): " "} imageurl = {element.urlToImage ? element.urlToImage : ""} newsurl={element.url}/>
             </div>
             })} 
