@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 export class News extends Component {
 
   static defaultProps = {
-    country: 'in',
+    country: 'us',
     pageSize: 5,
     category: 'general',
   }
@@ -42,7 +42,6 @@ export class News extends Component {
     return (
       <>    
         <div className="container my-4">
-          {/* <Spinner/> */}
           <h1><center>AlleNews - An Entry Point to view latest News</center></h1><br/>
           <div className="row">
             {this.state.articles.map((element) => {
