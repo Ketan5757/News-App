@@ -1,10 +1,24 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 //import Spinner from './Spinner';
+import PropTypes from 'prop-types'
 
 
 
 export class News extends Component {
+
+  static defaultProps = {
+    country: 'in',
+    pageSize: 5,
+    category: 'general',
+  }
+
+  static propTypes = {
+    country : PropTypes.string,
+    pageSize : PropTypes.number,
+    category : PropTypes.string
+  }
+
   constructor(){
     super();
     console.log("This is a constructor");
@@ -15,7 +29,8 @@ export class News extends Component {
   }
 
   async componentDidMount(){
-    let url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=cc1ee18d046a42569793bbb275a6cefe"
+    console.log("This is componentDidMount");
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&pageSize=${this.props.pageSize}&apiKey=cc1ee18d046a42569793bbb275a6cefe`
     let data = await fetch(url);
     let parseddata = await data.json();
     console.log(parseddata);
