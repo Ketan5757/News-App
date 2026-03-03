@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 //import Spinner from './Spinner';
 import PropTypes from 'prop-types'
+import InfiniteScroll from "react-infinite-scroll-component";
 
 
 
@@ -47,7 +48,13 @@ export class News extends Component {
     return (
       <>    
         <div className="container my-4">
-          <h1><center>AlleNews - Top Headlines on {this.capitalizeFirstLetter(this.props.category)} </center></h1><br/>
+          <h1><center>AlleNews - Top {this.capitalizeFirstLetter(this.props.category)} Headlines </center></h1><br/>
+          <InfiniteScroll
+          dataLength={this.state.articles.length}
+          next={this.fetchMoreData}
+          hasMore={this.state.articles.length !== this.state.totalResults}
+          // loader={<h4>Loading...</h4>}
+        >
           <div className="row">
             {this.state.articles.map((element) => {
               return <div className="col-md-4 mb-4" key = {element.url}>
@@ -55,6 +62,7 @@ export class News extends Component {
             </div>
             })} 
             </div>
+            </InfiniteScroll>
       </div>
       </>
     )
