@@ -11,7 +11,7 @@ export class NewsItem extends Component {
         <h5 className="card-title">{title}...</h5>
          <p className="card-text">{description}...</p>
          <h6 className='card-author'>by Author - {author}</h6>
-         <h6 className='card-date'>{publishedAt}</h6>
+         <h6 className='card-date'>{new Date(publishedAt).toGMTString()}</h6>
         <a href= {newsurl} className="btn btn-sm btn-primary">Explore more</a>
       </div>
     </div>
